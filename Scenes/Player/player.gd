@@ -48,7 +48,7 @@ func handle_wall_collision() -> void:
 	
 	velocity.y = 50
 	reset_jumps()
-	anim_sprite.play("fall")
+	anim_sprite.play("wall_jump")
 	
 	if is_on_floor():
 		change_direction()
@@ -73,8 +73,10 @@ func jump() -> void:
 	
 	if jumps_left <= 0:
 		anim_sprite.play("double_jump")
+		anim_sprite.animation_finished.connect(func(): anim_sprite.play("fall"))
 	else:
 		anim_sprite.play("jump")
+		anim_sprite.animation_finished.connect(func(): anim_sprite.play("fall"))
 
 
 func change_direction() -> void:

@@ -454,6 +454,7 @@ animations = [{
 height = 32.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1407479026]
+z_index = 1
 script = ExtResource("1_uvnfx")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=414510182]
