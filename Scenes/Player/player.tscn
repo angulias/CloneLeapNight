@@ -451,13 +451,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vn8q6"]
-height = 28.0
+height = 32.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1407479026]
 script = ExtResource("1_uvnfx")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=414510182]
-unique_name_in_owner = true
 position = Vector2(0, -13)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=1114955471]
