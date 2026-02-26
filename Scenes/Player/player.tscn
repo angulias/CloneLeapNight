@@ -455,6 +455,7 @@ height = 32.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1407479026]
 z_index = 1
+collision_mask = 14
 script = ExtResource("1_uvnfx")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=414510182]
@@ -469,6 +470,7 @@ autoplay = "run"
 [node name="RayCast2D" type="RayCast2D" parent="Visuals" unique_id=108619716]
 unique_name_in_owner = true
 target_position = Vector2(12, 0)
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=807375451]
 position = Vector2(0, -14)
