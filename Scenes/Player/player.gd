@@ -17,6 +17,7 @@ var can_move := true
 
 func _ready() -> void:
 	reset_jumps()
+	anim_sprite.animation_finished.connect(_on_anim_finished)
 
 
 func _physics_process(delta: float) -> void:
@@ -73,16 +74,25 @@ func jump() -> void:
 	
 	if jumps_left <= 0:
 		anim_sprite.play("double_jump")
-		anim_sprite.animation_finished.connect(func(): anim_sprite.play("fall"))
 	else:
 		anim_sprite.play("jump")
-		anim_sprite.animation_finished.connect(func(): anim_sprite.play("fall"))
 
 
 func change_direction() -> void:
 	move_direction *= -1
 	visuals.scale.x *= -1
-
+	
 
 func reset_jumps() -> void:
 	jumps_left = max_jumps
+
+
+func player_dead() -> void:
+	can_move = false
+	velocity = Vector2.ZERO
+	anim_sprite.play("dead")
+
+
+func _on_anim_finished() -> void:
+	if anim_sprite.animation == "jump" or anim_sprite.animation == "double_jump":
+		anim_sprite.play("fall")

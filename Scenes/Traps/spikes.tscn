@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cdp7oj4nfwx6q"]
+
+[ext_resource type="Script" uid="uid://dtpa04tmhm5ji" path="res://Scenes/Traps/spikes.gd" id="1_nm7ow"]
+[ext_resource type="Texture2D" uid="uid://0ulu0ylxwnwd" path="res://Assets/Sprites/Traps/Spikes/Idle.png" id="1_oc00y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nm7ow"]
+size = Vector2(15, 7)
+
+[node name="Spikes" type="Area2D" unique_id=1578569139]
+collision_layer = 0
+script = ExtResource("1_nm7ow")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1104797208]
+position = Vector2(0, -8)
+texture = ExtResource("1_oc00y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=775766080]
+position = Vector2(-0.5, -3.5)
+shape = SubResource("RectangleShape2D_nm7ow")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
