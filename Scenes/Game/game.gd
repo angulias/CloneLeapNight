@@ -4,7 +4,8 @@ class_name Game
 @onready var player: Player = $Player
 @onready var spawn_pos: Marker2D = $SpawnPos
 @onready var checkpoint_respawn_pos: Marker2D = $CheckpointRespawnPos
-
+@onready var game_won_panel: Panel = %GameWonPanel
+@onready var points_label: Label = %Points
 var points := 0
 var checkpoint_reached := false
 
@@ -13,7 +14,7 @@ func _ready() -> void:
 	EventManager.on_fruit_collected.connect(_on_fruit_collected)
 	EventManager.on_checkpoint_reached.connect(_on_checkpoint_reached)
 	EventManager.on_game_won.connect(_on_game_won)
-
+	
 
 func get_respawn_pos() -> Vector2:
 	if checkpoint_reached:
@@ -33,10 +34,13 @@ func _on_player_dead() -> void:
 
 func _on_fruit_collected() -> void:
 	points += 1
-	print(points)
+	points_label.text = str(points)
 
 func _on_checkpoint_reached() -> void:
 	checkpoint_reached = true
 
 func _on_game_won() -> void:
-	print("Game_won")
+	game_won_panel.show()
+
+func _on_play_button_pressed() -> void:
+	get_tree().reload_current_scene()

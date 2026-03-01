@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://ct5t0e8cft6vk" path="res://Scenes/Enemy/enemy_rino.tscn" id="22_pa3qg"]
 [ext_resource type="PackedScene" uid="uid://dldx626snq48o" path="res://Scenes/Enemy/enemy_pig.tscn" id="23_2lc0x"]
 [ext_resource type="PackedScene" uid="uid://b7wdwiot4ejfw" path="res://Scenes/Extra/end_checkpoint.tscn" id="24_4ti5a"]
+[ext_resource type="FontFile" uid="uid://0kn0p3jqfsqx" path="res://Assets/Fonts/upheavtt.ttf" id="25_pmm7v"]
+[ext_resource type="Texture2D" uid="uid://car81gls5j7kj" path="res://Assets/Sprites/Items/Fruits/Fruit.png" id="26_3gqeb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flgk0"]
 shader = ExtResource("1_i1e5p")
@@ -39,6 +41,24 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -103, -120, 0, 0, 0, 0, 103, -120)
 }
 point_count = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gqeb"]
+bg_color = Color(0.043137256, 0.33333334, 0.5372549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_7pdpw"]
+font = ExtResource("25_pmm7v")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmm7v"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gqd4u"]
+font = ExtResource("25_pmm7v")
+font_size = 32
 
 [node name="Game" type="Node2D" unique_id=827361981]
 script = ExtResource("1_flgk0")
@@ -362,3 +382,80 @@ position = Vector2(136, 382)
 
 [node name="CheckpointRespawnPos" type="Marker2D" parent="." unique_id=775474353]
 position = Vector2(136, -943)
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=460545627]
+
+[node name="GameWonPanel" type="Panel" parent="GameUI" unique_id=102427710]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 150)
+offset_left = 37.0
+offset_top = 166.0
+offset_right = 237.0
+offset_bottom = 316.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3gqeb")
+
+[node name="Label" type="Label" parent="GameUI/GameWonPanel" unique_id=741209959]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = 19.0
+offset_right = 76.0
+offset_bottom = 48.0
+grow_horizontal = 2
+text = "GAME WON"
+label_settings = SubResource("LabelSettings_7pdpw")
+
+[node name="PlayButton" type="Button" parent="GameUI/GameWonPanel" unique_id=1022780019]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -3.0
+offset_right = 75.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("25_pmm7v")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmm7v")
+text = "Play"
+
+[node name="Control" type="Control" parent="GameUI" unique_id=399548431]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/Control" unique_id=270615550]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("26_3gqeb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Points" type="Label" parent="GameUI/Control" unique_id=1344522851]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 38.0
+offset_top = -17.0
+offset_right = 78.0
+offset_bottom = 19.0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_gqd4u")
+
+[connection signal="pressed" from="GameUI/GameWonPanel/PlayButton" to="." method="_on_play_button_pressed"]
