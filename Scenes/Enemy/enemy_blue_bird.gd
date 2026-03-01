@@ -12,8 +12,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_top_area_body_entered(body: Node2D) -> void:	
-	if not body is Player or EventManager.player_hit == true:
-		return
+	if not body is Player or EventManager.player_hit: return
 	
 	path.can_move = false
 	anim_sprite.play("hit")
@@ -25,11 +24,7 @@ func _on_top_area_body_entered(body: Node2D) -> void:
 
 
 func _on_bottom_area_body_entered(body: Node2D) -> void:
-	if not body is Player:
-		return
-	
-	if defeated:
-		return
+	if not body is Player or defeated: return
 	
 	EventManager.player_hit = true
 	EventManager.on_player_dead.emit()
