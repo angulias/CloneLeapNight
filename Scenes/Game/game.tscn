@@ -62,7 +62,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1407479026 instance=ExtResource("1_mv0hc")]
 unique_name_in_owner = true
-position = Vector2(134, -624)
+position = Vector2(136, 389)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2135345917]
 limit_left = 0
@@ -358,7 +358,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 53)
 
 [node name="SpawnPos" type="Marker2D" parent="." unique_id=289659733]
-position = Vector2(136, -637)
+position = Vector2(136, 382)
 
 [node name="CheckpointRespawnPos" type="Marker2D" parent="." unique_id=775474353]
 position = Vector2(136, -943)
