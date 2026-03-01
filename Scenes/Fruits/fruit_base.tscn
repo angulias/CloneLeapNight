@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://d3pub760x3hxq"]
+
+[ext_resource type="Script" uid="uid://3q3g757wrufd" path="res://Scenes/Fruits/fruit.gd" id="1_430s0"]
+[ext_resource type="Texture2D" uid="uid://dtay0n1i5ig7x" path="res://Assets/Sprites/Items/Fruits/Collected.png" id="2_jlpx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2wvw"]
+atlas = ExtResource("2_jlpx2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keyis"]
+atlas = ExtResource("2_jlpx2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcuce"]
+atlas = ExtResource("2_jlpx2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_girhf"]
+atlas = ExtResource("2_jlpx2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7y1d"]
+atlas = ExtResource("2_jlpx2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23yfb"]
+atlas = ExtResource("2_jlpx2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7r8hy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2wvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keyis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcuce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_girhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7y1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23yfb")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 25.0
+}]
+
+[sub_resource type="Animation" id="Animation_jlpx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k2wvw"]
+resource_name = "move"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_keyis"]
+_data = {
+&"RESET": SubResource("Animation_jlpx2"),
+&"move": SubResource("Animation_k2wvw")
+}
+
+[node name="FruitBase" type="Area2D" unique_id=2068666124]
+collision_layer = 8
+script = ExtResource("1_430s0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=477074408]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=946279132]
+sprite_frames = SubResource("SpriteFrames_7r8hy")
+animation = &"collected"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=476619312]
+libraries/ = SubResource("AnimationLibrary_keyis")
+autoplay = &"move"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

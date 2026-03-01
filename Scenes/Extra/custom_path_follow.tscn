@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c81t6pgmt73xg"]
+
+[ext_resource type="Script" uid="uid://cqi70el67m4lp" path="res://Scenes/Extra/custom_path_follow.gd" id="1_v4caj"]
+
+[node name="CustomPathFollow" type="PathFollow2D" unique_id=787733269]
+loop = false
+script = ExtResource("1_v4caj")

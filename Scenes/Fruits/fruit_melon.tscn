@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://cwrgdqxbwoas2"]
+
+[ext_resource type="PackedScene" uid="uid://d3pub760x3hxq" path="res://Scenes/Fruits/fruit_base.tscn" id="1_ib7cv"]
+[ext_resource type="Texture2D" uid="uid://dtay0n1i5ig7x" path="res://Assets/Sprites/Items/Fruits/Collected.png" id="2_xf6ti"]
+[ext_resource type="Texture2D" uid="uid://c6qhwgp61a0kr" path="res://Assets/Sprites/Items/Fruits/Melon.png" id="3_rhj0j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ib7cv"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2wvw"]
+atlas = ExtResource("2_xf6ti")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keyis"]
+atlas = ExtResource("2_xf6ti")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcuce"]
+atlas = ExtResource("2_xf6ti")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_girhf"]
+atlas = ExtResource("2_xf6ti")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7y1d"]
+atlas = ExtResource("2_xf6ti")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23yfb"]
+atlas = ExtResource("2_xf6ti")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kanml"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s52ni"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02b61"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhck2"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4gey"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7bo1"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfka2"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6clk2"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oolk6"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1yk7"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qot5p"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1py81"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw0qr"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6q3n"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_636o4"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pu0q"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7x6v"]
+atlas = ExtResource("3_rhj0j")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blvtk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2wvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keyis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcuce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_girhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7y1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23yfb")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kanml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s52ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02b61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhck2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4gey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7bo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfka2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6clk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oolk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1yk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qot5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1py81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw0qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6q3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_636o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pu0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7x6v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 30.0
+}]
+
+[node name="FruitMelon" unique_id=2068666124 instance=ExtResource("1_ib7cv")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=477074408]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_ib7cv")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=946279132]
+sprite_frames = SubResource("SpriteFrames_blvtk")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5896443
