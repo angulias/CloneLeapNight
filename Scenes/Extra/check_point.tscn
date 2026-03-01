@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jqcuabuu4emg"]
 
-[ext_resource type="Script" uid="uid://b2oorwywudnhb" path="res://Scenes/check_point.gd" id="1_mcmgj"]
+[ext_resource type="Script" uid="uid://b2oorwywudnhb" path="res://Scenes/Extra/check_point.gd" id="1_mcmgj"]
 [ext_resource type="Texture2D" uid="uid://ua025h10ww56" path="res://Assets/Sprites/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="1_oampm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcmgj"]
