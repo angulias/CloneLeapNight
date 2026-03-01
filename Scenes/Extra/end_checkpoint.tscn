@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b7wdwiot4ejfw"]
+
+[ext_resource type="Script" uid="uid://cc5cwbyumqd1f" path="res://Scenes/Extra/end_checkpoint.gd" id="1_rlqmy"]
+[ext_resource type="Texture2D" uid="uid://c86ny7s24p33" path="res://Assets/Sprites/Items/Checkpoints/End/End (Idle).png" id="2_157wm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbldb"]
+size = Vector2(46, 20)
+
+[node name="EndCheckpoint" type="Area2D" unique_id=1773127909]
+script = ExtResource("1_rlqmy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1664033943]
+position = Vector2(0, -32)
+texture = ExtResource("2_157wm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=883299488]
+position = Vector2(0, -33)
+shape = SubResource("RectangleShape2D_nbldb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
