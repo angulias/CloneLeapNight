@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://oidi3lsci8bl"]
+
+[ext_resource type="Script" uid="uid://pvbd8tlul6fa" path="res://Scenes/Traps/moving_rock.gd" id="1_qxywm"]
+[ext_resource type="Texture2D" uid="uid://d4mupmhmsj3gn" path="res://Assets/Sprites/Traps/Rock Head/Bottom Hit (42x42).png" id="1_vlpdv"]
+[ext_resource type="Texture2D" uid="uid://b66us08dqpmc4" path="res://Assets/Sprites/Traps/Rock Head/Idle.png" id="2_qxywm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqhhh"]
+atlas = ExtResource("1_vlpdv")
+region = Rect2(0, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhh2g"]
+atlas = ExtResource("1_vlpdv")
+region = Rect2(42, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vedhf"]
+atlas = ExtResource("1_vlpdv")
+region = Rect2(84, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbfvg"]
+atlas = ExtResource("1_vlpdv")
+region = Rect2(126, 0, 42, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0rrd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqhhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhh2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vedhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbfvg")
+}],
+"loop": false,
+"name": &"bottom_hit",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qxywm")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlpdv"]
+size = Vector2(32, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37uh6"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asx7x"]
+size = Vector2(32, 6)
+
+[node name="MovingRock" type="StaticBody2D" unique_id=691203979]
+collision_layer = 4
+script = ExtResource("1_qxywm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=845555748]
+sprite_frames = SubResource("SpriteFrames_o0rrd")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474603160]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_vlpdv")
+
+[node name="ActionArea" type="Area2D" parent="." unique_id=832349766]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea" unique_id=1403037684]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_37uh6")
+debug_color = Color(0, 0.6445763, 0.28429943, 0.41960785)
+
+[node name="KillArea" type="Area2D" parent="." unique_id=1100392901]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea" unique_id=41426723]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_asx7x")
+debug_color = Color(0.99370986, 0, 0.24042353, 0.41960785)
+
+[connection signal="body_entered" from="ActionArea" to="." method="_on_action_area_body_entered"]
+[connection signal="body_entered" from="KillArea" to="." method="_on_kill_area_body_entered"]
