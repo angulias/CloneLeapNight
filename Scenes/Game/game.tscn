@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://che14vy5cxv86" path="res://Scenes/Fruits/fruit_cherries.tscn" id="16_yox4t"]
 [ext_resource type="PackedScene" uid="uid://dg03fmyybw55x" path="res://Scenes/Enemy/enemy_blue_bird.tscn" id="17_2vowc"]
 [ext_resource type="PackedScene" uid="uid://oidi3lsci8bl" path="res://Scenes/Traps/moving_rock.tscn" id="18_yox4t"]
+[ext_resource type="PackedScene" uid="uid://jqcuabuu4emg" path="res://Scenes/check_point.tscn" id="19_lemb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flgk0"]
 shader = ExtResource("1_i1e5p")
@@ -252,5 +253,17 @@ move_distance = 96.0
 [node name="Floor_7" type="Node2D" parent="." unique_id=99870722]
 position = Vector2(136, -957)
 
+[node name="CheckPoint" parent="Floor_7" unique_id=190886338 instance=ExtResource("19_lemb1")]
+position = Vector2(0, 61)
+
+[node name="Floor_8" type="Node2D" parent="." unique_id=781804004]
+position = Vector2(136, -1092)
+
+[node name="Spikes" parent="Floor_8" unique_id=454774370 instance=ExtResource("11_upfqs")]
+position = Vector2(-87, 67)
+
 [node name="SpawnPos" type="Marker2D" parent="." unique_id=289659733]
-position = Vector2(136, 371)
+position = Vector2(136, -637)
+
+[node name="CheckpointRespawnPos" type="Marker2D" parent="." unique_id=775474353]
+position = Vector2(136, -943)
