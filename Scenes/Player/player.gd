@@ -9,6 +9,8 @@ class_name Player
 @onready var visuals: Node2D = $Visuals
 @onready var anim_sprite: AnimatedSprite2D = %AnimatedSprite2D
 @onready var ray_cast: RayCast2D = %RayCast2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
 
 var jumps_left: int
 var move_direction := 1
@@ -90,9 +92,17 @@ func reset_jumps() -> void:
 func player_dead() -> void:
 	can_move = false
 	velocity = Vector2.ZERO
+	collision_shape_2d.set_deferred("disabled", true)
 	anim_sprite.play("dead")
 
+func player_respawn() -> void:
+	anim_sprite.play("respawn")
+	await anim_sprite.animation_finished
+	can_move = true
+	collision_shape_2d.set_deferred("disabled", false)
+	EventManager.player_hit = false
 
 func _on_anim_finished() -> void:
 	if anim_sprite.animation == "jump" or anim_sprite.animation == "double_jump":
 		anim_sprite.play("fall")
+	

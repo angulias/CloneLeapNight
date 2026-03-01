@@ -5,7 +5,7 @@ class_name Fruit
 
 var collected := false
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	if collected:
 		return
 	

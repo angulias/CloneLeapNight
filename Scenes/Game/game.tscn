@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bettudaavs0m6" path="res://Scenes/Fruits/fruit_strawberry.tscn" id="13_upfqs"]
 [ext_resource type="PackedScene" uid="uid://b5k7vv081n6a6" path="res://Scenes/Fruits/fruit_kiwi.tscn" id="15_2vowc"]
 [ext_resource type="PackedScene" uid="uid://che14vy5cxv86" path="res://Scenes/Fruits/fruit_cherries.tscn" id="16_yox4t"]
+[ext_resource type="PackedScene" uid="uid://dg03fmyybw55x" path="res://Scenes/Enemy/enemy_blue_bird.tscn" id="17_2vowc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flgk0"]
 shader = ExtResource("1_i1e5p")
@@ -197,5 +198,19 @@ move_speed = 0.45
 
 [node name="FruitCherries" parent="Floor_5/Path2D3/CustomPathFollow" unique_id=1464349190 instance=ExtResource("16_yox4t")]
 
+[node name="Path2D4" type="Path2D" parent="Floor_5" unique_id=1961279271]
+position = Vector2(0, 72)
+curve = SubResource("Curve2D_8e3kh")
+
+[node name="CustomPathFollow" parent="Floor_5/Path2D4" unique_id=1392506529 instance=ExtResource("12_oejk7")]
+position = Vector2(-103, -120)
+move_speed = 0.3
+
+[node name="EnemyBlueBird" parent="Floor_5/Path2D4/CustomPathFollow" unique_id=318080448 node_paths=PackedStringArray("path") instance=ExtResource("17_2vowc")]
+path = NodePath("..")
+
 [node name="Floor_6" type="Node2D" parent="." unique_id=1844239199]
 position = Vector2(136, 226)
+
+[node name="SpawnPos" type="Marker2D" parent="." unique_id=289659733]
+position = Vector2(136, 371)
