@@ -44,6 +44,7 @@ func _on_top_area_body_entered(body: Node2D) -> void:
 	
 	defeated = true
 	can_move = false
+	body.velocity.y = -250
 	anim_sprite.play("hit")
 	await anim_sprite.animation_finished
 	queue_free()
