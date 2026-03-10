@@ -1,9 +1,9 @@
 extends Node
 
-const CLICK_1 = preload("uid://bce1uag8tjdj")
-const FRUIT = preload("uid://c48enf5222t4f")
-const HIT = preload("uid://c3nncwj3qyhbm")
-const JUMPING_SFX = preload("uid://bp7dsvph7nlk5")
+const CLICK_1 = preload("res://Assets/Sound/click1.ogg")
+const FRUIT = preload("res://Assets/Sound/impactBell_heavy_004.ogg")
+const HIT = preload("res://Assets/Sound/impactWood_medium_002.ogg")
+const JUMPING_SFX = preload("res://Assets/Sound/jumping sfx.mp3")
 
 @onready var sfx_streams: Node = $SFXStreams
 
